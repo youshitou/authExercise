@@ -1,0 +1,56 @@
+This is an authentication and authorization exercise.
+
+The project provides APIs to handle operations of user, role and token related.
+API can be accessed by http://serverName:port/api. 
+
+1. User
+	a)Create user - /api/user/create
+	POST request
+	Headers: Content-Type:application/json
+	Json: {"userName": "Frodo", "password": "password"} 
+	b)Delete user - /api/user/delete
+	POST request
+	Params: userName=Frodo
+	c)List all users - /api/user
+	GET request
+	Params: null
+	
+2. Role
+	a)Create role - /api/role/create
+	POST request
+	Headers: Content-Type:application/json
+	Json: {"roleName": "role1", "roleDesc": "role 1"} 
+	b)Delete role - /api/role/delete
+	POST request
+	Params: roleName=role1
+	c)List all roless - /api/role
+	GET request
+	Params: null
+	d)Add user to role - /api/role/addUsertoRole
+	POST request
+	Headers: Content-Type:application/json
+	Json: {"userName": "Frodo", "roleName": "role1"}
+	e)Remove user from role - /api/role/removeUserfromRole
+	POST request
+	Headers: Content-Type:application/json
+	Json: {"userName": "Frodo", "roleName": "role1"}
+	
+3. Token	
+	a)Authenticate a token, can set expired time for token, default is 2 hours - /api/userToken/authenticate
+	POST request
+	Headers: Content-Type:application/json
+	Json: {"userName": "Frodo", "password": "password"} 
+	Params: expire=2
+	b)Invalidate a token - /api/userToken/authenticate
+	POST request
+	Params: token=ccae1e07-a7c1-49df-8455-54e28e4fefea
+	c)check role - /api/userToken/checkRole
+	POST request
+	Params: token=ccae1e07-a7c1-49df-8455-54e28e4fefea&roleName=role1
+	c)retrieve all roles - /api/userToken/retrieveAllRoles
+	Get request
+	Params: token=ccae1e07-a7c1-49df-8455-54e28e4fefea
+	
+	
+	
+	
